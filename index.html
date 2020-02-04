@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Petshop-RD </title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
 </head>
 <body>
     <script>
-        console.log('*************** PETSHOP DA RD ******************');
+        const EMPRESA = '*************** PETSHOP DA RD ******************'
+        console.log(EMPRESA);
 
-        var cachorro = {
+        let cachorro = {
             especie: "cachorro",
             nome: "Menino",
             idade: 8,
@@ -22,11 +28,11 @@
                 endereco:"Av Paulista 222",
                 telefone: 922332222
             },
-            vacinado: true,
+            vacinado: false,
             servicos: ["banho","cortar-unhas"]
         }
 
-        var gato = {
+        let gato = {
             especie: "gato",
             nome: "Doll",
             idade: 3,
@@ -42,7 +48,7 @@
             servicos: ["banho","vacinar"]
         }
 
-        var passarinho = {
+        let passarinho = {
             especie: "passaro",
             nome: "Júlio",
             idade: 13,
@@ -59,22 +65,89 @@
         }
 
 
-        var lista_pets = [cachorro,gato,passarinho]
+        let lista_pets = [cachorro,gato,passarinho]
 
 
 
-
-        function vacinar(cachorrop) {
+// Arrow function
+        const vacinar = cachorrop => {
             if (!cachorrop.vacinado) {
                 cachorrop.vacinado = true
-                console.log('Cachorro vacinado!')
+                console.log('Vacinado!')
             } else {
-                console.log('Cachorro já esta vacinado!')
+                console.log('Já esta vacinado!')
             }
             return cachorro;
         }
 
+        const  add_pet = (nome, idade, raca, especie, peso, cor, dono, 
+        vacinado,servicos) => {
+            
+
+            const pet_novo = {
+                    especie,
+                    nome,
+                    idade,
+                    raca,
+                    peso,
+                    cor,
+                    dono: {
+                        nome:null,
+                        idade: null
+                    },
+                    vacinado,
+                    servicos
+                }
+                
+            lista_pets.push(pet_novo)
+            console.log('Pet adicionado!!')      
+        }
+            
+        
+// Express function / callback
+        const mostrar_pets = () => {
+            lista_pets.forEach((valor, index) => {
+                console.log("--------------------------------------");
+                console.log('Nome do pet: ' + valor.nome);
+                console.log('Espécie do pet: ' + valor.especie);
+                console.log(valor.vacinado?"Pet vacinado!":"Pet não vacinado!");
+               
+            })
+        }
     
+    
+    // let petsTipoGato = [];
+
+    // lista_pets.forEach((pet, index) => {
+    //     if (pet.especie == "gato") {
+    //         petsTipoGato.push(pet)
+    //     }
+    // })
+
+    const filtrarPetsGatos = () => {
+        let listaPetsGatos = lista_pets.filter(function(pet, index){
+                return pet.especie == "gato"
+        })
+        return listaPetsGatos
+    }
+
+    
+    const filtrarVacinas = () => {
+        
+        let retorno = lista_pets.map(function(vacina, index){
+                vacina.vacinado = true
+                return pet;
+                
+            
+        })
+           return retorno
+    }
+        
+
+        
+    
+
+
     </script>
 </body>
 </html>
