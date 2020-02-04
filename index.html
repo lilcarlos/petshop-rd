@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,7 @@
         console.log('*************** PETSHOP DA RD ******************');
 
         var cachorro = {
+            especie: "cachorro",
             nome: "Menino",
             idade: 8,
             raca: "Vira-Lata",
@@ -22,8 +23,46 @@
                 telefone: 922332222
             },
             vacinado: true,
-            servicos: ["banho","cortar-unhas","vacinar"]
+            servicos: ["banho","cortar-unhas"]
         }
+
+        var gato = {
+            especie: "gato",
+            nome: "Doll",
+            idade: 3,
+            raca: "Persa",
+            peso: 5.0,
+            cor: "Branca",
+            dono: {
+                nome:"Fernanda",
+                endereco:"Av Dummond Villares 223",
+                telefone: 992288812
+            },
+            vacinado: false,
+            servicos: ["banho","vacinar"]
+        }
+
+        var passarinho = {
+            especie: "passaro",
+            nome: "Júlio",
+            idade: 13,
+            raca: "Papagaio",
+            peso: 0.3,
+            cor: "Verde",
+            dono: {
+                nome:"Bruno",
+                endereco:"Av Dummond Villares 223",
+                telefone: 992183832
+            },
+            vacinado: false,
+            servicos: ["banho","vacinar","aparar asas"]
+        }
+
+
+        var lista_pets = [cachorro,gato,passarinho]
+
+
+
 
         function vacinar(cachorrop) {
             if (!cachorrop.vacinado) {
